@@ -114,10 +114,11 @@ public class ContactsProvider {
                             label = "mobile";
                             break;
                         case Email.TYPE_CUSTOM:
-                            if(cursor.getString(cursor.getColumnIndex(Email.LABEL)) != null){
-                                label = cursor.getString(cursor.getColumnIndex(Email.LABEL)).toLowerCase();
+                            label = cursor.getString(cursor.getColumnIndex(Email.LABEL));
+                            if (label != null) {
+                              label = label.toLowerCase();
                             } else {
-                                label = "";
+                              label = "other";
                             }
                             break;
                         default:
